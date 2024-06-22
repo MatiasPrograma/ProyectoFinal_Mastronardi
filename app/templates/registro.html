@@ -2,33 +2,37 @@
 
 {% block content %}
 
-<br>
-<br>
-<br>
-<br>
 
-<div class="container text-center">
-    <h1>Registro de Nuevo Usuario</h1>
-</div>
 
 <div class="container">
-    <div class="form-group">
-    <form style=" width: 50vw; margin-left : 15vw;" method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <div class="container text-center">
-        <button type="submit" class="btn btn-primary">Registrar</button>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-header text-center">
+                    <h2>Registro</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'Register' %}">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        {% if form.errors %}
+                            <div class="alert alert-danger">
+                                {{ form.errors }}
+                            </div>
+                        {% endif %}
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Registrar</button>
+                        </div>
+                        <div class="container text-center">
+                            <p>Ya tienes una cuenta? <a href="{% url 'Login' %}">Iniciar Sesión</a></p>
+                            </div>
+                    </form>
+                </div>
+            </div>
         </div>
-    </form>
-    </div>
-    <br>
-    <div class="container text-center">
-    <p>Ya tienes una cuenta? <a href="{% url 'Login' %}">Iniciar Sesión</a></p>
     </div>
 </div>
 
-<br>
-<br>
-<br>
-<br>
+
+
 {% endblock %}
