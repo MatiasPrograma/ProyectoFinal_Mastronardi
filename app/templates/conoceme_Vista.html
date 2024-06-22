@@ -1,0 +1,42 @@
+
+{% extends 'Padre.html' %}
+{% load static %}
+
+{% block content %}
+
+<br>
+<br>
+
+
+    <div class="container">
+       <h2 class="text-center text-dark">
+           Acerca de Mi
+       </h2>
+       <br>
+       <div class="row g-4">
+           <div class="col-md-6 col-lg-3">
+               <div class="card bg-success">
+                    <div class="card-body text-center">
+                        <img src="{% static 'imagenes/fotoyo.jpg' %}" class="rounded-circle mb-3" width="150px">
+                    <h3 class="card-title mb-3">Matias Mastronardi</h3>
+
+                    </div>
+               </div>
+           </div>
+           <div class="col">
+            <div class="">
+                 <div class="text-center">
+                    <p>Mi nombre es Matias Mastronardi , actualmente tengo 17 años y hice este curso para ver si este mundo de la programacion me gustaba, por el momento esto es algo que me llama la atencion. Como informacion aparte, hago handball y me gusta mucho jugar a la computadora.</p>
+                 </div>
+            </div>
+        </div>
+       </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+{% endblock %}

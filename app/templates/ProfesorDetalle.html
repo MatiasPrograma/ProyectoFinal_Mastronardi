@@ -1,0 +1,25 @@
+{% extends 'Padre.html' %}
+
+{% block content %}
+
+<br>
+<br>
+
+<div class="container">
+
+<p><h4>{{profesor.titulo}}</h4></p>
+
+{% if profesor.imagendeprofesor%}
+    <p><img src="{{ profesor.imagendeprofesor.url }}" alt="" width = "200px" height = "200px" ></p>
+{% endif %}
+<p>Profesor: {{profesor.Profesor}}</p>
+<p>Descripción: {{profesor.descripcion}}</p>
+<p>Fecha de publicacion: {{profesor.fechaPublicacion}}</p>
+<p>Teléfono de Contacto: {{profesor.telefonoContacto}}</p>
+<p>Email de Contacto: {{profesor.emailContacto}}</p>
+
+</div>
+<br>
+
+
+{% endblock %}

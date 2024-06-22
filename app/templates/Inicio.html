@@ -1,0 +1,41 @@
+{% extends 'Padre.html' %}
+
+{% block content %}
+    <!-- Inicio -->
+    <br>
+    <br>
+    <br>
+    <section id="home" class="text-dark p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+        <div class="container text-center">
+            <div class="">
+                <div>
+                    <h2>Bienvenido a <span class="text-primary">Las Constelaciones</span></h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class = "container " >
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for constelacion in constelaciones %}
+                        {% if constelacion.imagendeconstelacion %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <img src="{{ constelacion.imagendeconstelacion.url }}" class="d-block w-100 carousel-img" alt="">
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>    
+
+
+{% endblock %}

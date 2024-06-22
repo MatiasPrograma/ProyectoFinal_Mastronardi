@@ -1,0 +1,44 @@
+{% extends 'Padre.html' %}
+
+{% block content %}
+<br>
+<br>
+<div class="container text-center">
+    <h1>Constelaciones</h1>
+</div>
+<br>
+<div class="container text-center">
+    <div class="row">
+        {% for constelacion in constelaciones %}
+            <div class="col-sm-6 align-items-center">
+            <div class="card-body">
+                <h5>{{ constelacion.titulo }} </h5>
+
+                <center>{% if constelacion.imagendeconstelacion %}
+                    <img src="{{ constelacion.imagendeconstelacion.url }}" alt="" class="img-fluid" width="200px" height="200px" >
+                {% endif %} </center>
+            <a href="{% url 'ConstelacionDetalle' constelacion.id %}">Leer mas</i></a>
+            {% if user.id == constelacion.usuario.id or user.is_superuser %}
+                <a href="{% url 'ConstelacionUpdate' constelacion.id %}">Editar</a>
+                <a href="{% url 'ConstelacionDelete' constelacion.id %}">Eliminar</i></a>
+            {% endif %}
+    </div>
+</div>
+{% endfor %}
+{% if user.is_superuser %}    
+    <section class="p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+        <div class="container">
+            <div class="">
+                <div class="text-center">
+                    <p class="lead my-4">
+                        ¿Quieres crear una nueva constelación?
+                    </p>
+                    <a href="{% url 'CreacionConstelacion' %}">
+                        <button type="button" class="btn btn-primary">Agregalo acá</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}
+{% endblock %}

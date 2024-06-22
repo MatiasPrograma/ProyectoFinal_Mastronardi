@@ -1,0 +1,44 @@
+{% extends 'Padre.html' %}
+
+{% block content %}
+
+<br>
+<br>
+
+<div class="container">
+
+<p><h4>{{constelacion.titulo}}</h4></p>
+
+{% if constelacion.imagendeconstelacion%}
+    <p><img src="{{ constelacion.imagendeconstelacion.url }}" alt="" width = "200px" height = "200px" ></p>
+{% endif %}
+<p>constelacion: {{constelacion.constelacion}}</p>
+<p>Descripción: {{constelacion.descripcion}}</p>
+<p>Fecha de publicacion: {{constelacion.fechaPublicacion}}</p>
+<p>Precio: {{constelacion.precio}}</p>
+<p>Teléfono de Contacto: {{constelacion.telefonoContacto}}</p>
+<p>Email de Contacto: {{constelacion.emailContacto}}</p>
+
+</div>
+<br>
+<div class="container">
+    <h4>Comentarios...</h4>
+    <br>
+    <div class="container">
+    {% if not constelacion.comentarios.all %}
+        No han comentado este instrumento
+    {% else %}
+        {% for comentario in constelacion.comentarios.all %}
+        <p><strong>{{comentario.nombre}}</strong></p>
+        <p>{{comentario.mensaje}}</p>
+        <p><small>{{comentario.fechaComentario}}</small></p>
+        <hr>
+        {% endfor %}
+    {% endif %}
+    <a href="{% url 'comentario' constelacion.pk %}">Agrega un Comentario</a>
+    </div>
+</div>
+<br>
+
+
+{% endblock %}

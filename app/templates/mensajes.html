@@ -1,0 +1,17 @@
+{% extends 'Padre.html' %}
+{% block content %}
+    <h2>Conversación con {{ conversacion.usuario1.username }} y {{ conversacion.usuario2.username }}</h2>
+    <div class="mensajes">
+        {% for mensaje in mensajes %}
+            <div class="mensaje">
+                <strong>{{ mensaje.emisor.username }}:</strong> {{ mensaje.contenido }}
+                <br><small>{{ mensaje.fecha_envio }}</small>
+            </div>
+        {% endfor %}
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+{% endblock %}

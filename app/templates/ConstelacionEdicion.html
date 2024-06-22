@@ -1,0 +1,30 @@
+{% extends 'Padre.html' %}
+
+{% block content %}
+
+<br>
+<br>
+
+{% if user.id == constelacion.usuario.id %}
+<div class="container">
+
+    <h4>Editar Constelacion</h4>
+    
+</div>
+
+<div class="container">
+    <div class="form-group">
+        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>    
+</div>
+<br>
+{% else %}
+<div class="container">
+<h4>No tienes acceso a esta pagina!</h4>
+</div>
+{% endif %}
+
+{% endblock %}

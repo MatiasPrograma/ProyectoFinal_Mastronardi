@@ -1,0 +1,6 @@
+.carousel-img {
+    height: 300px; /* Ajusta el tamaño máximo de las imágenes del carrusel según sea necesario */
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}

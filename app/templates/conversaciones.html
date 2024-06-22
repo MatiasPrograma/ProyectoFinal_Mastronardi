@@ -1,0 +1,24 @@
+{% extends 'Padre.html' %}
+{% block content %}
+    <h2>Tus conversaciones</h2>
+    <ul>
+            {% if usuarios %}
+        <ul>
+            {% for usuario in usuarios %}
+                <li>
+                    {{ usuario.username }}
+                    <a href="{% url 'iniciar_conversacion' usuario.id %}">Iniciar conversación</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay usuarios disponibles.</p>
+    {% endif %}
+
+        {% for conversacion in conversaciones %}
+            <li><a href="{% url 'mensajes' conversacion.id %}">{{ conversacion }}</a></li>
+        {% empty %}
+            <li>No tienes conversaciones.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
