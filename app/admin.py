@@ -9,3 +9,5 @@ admin.site.register(Profesores)
 
 admin.site.register(Mensaje)
 
+admin.site.register(Conversacion)
+
